@@ -1,6 +1,6 @@
 ﻿namespace Domain.Enums;
 
-public enum TaskPriority
+public enum IssuePriority
 {
     Lowest,
     Low,
