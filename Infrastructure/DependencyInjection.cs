@@ -1,6 +1,4 @@
-﻿using Application.Data.DataBaseContext;
-using Infrastructure.Data.DataBaseContext;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure;
@@ -17,6 +15,10 @@ public static class DependencyInjection
         });
 
         services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+        services.AddIdentityServices(configuration);
+
+        services.AddHttpContextAccessor();
+        services.AddScoped<IUserAccessor, UserAccessor>();
 
         return services;
     }
